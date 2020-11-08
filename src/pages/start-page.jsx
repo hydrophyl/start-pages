@@ -1,40 +1,62 @@
 import React from "react";
-import { Text, Icon, Pivot, PivotItem, Label, Link } from "@fluentui/react";
+import {
+  Text,
+  Icon,
+  Pivot,
+  PivotItem,
+  Link,
+  DefaultEffects,
+  Stack,
+  getTheme,
+} from "@fluentui/react";
 import "./start-page.scss";
+import Categories from "./categories.json";
+
+const theme = getTheme();
 
 const StartPage = () => {
   return (
-    <div style={{ textAlign: "center" }}>
-      <Text variant="mega" block>
+    <div
+      id="start"
+      style={{ textAlign: "center", background: theme.palette.neutralDark }}
+    >
+      <Text variant="mega" block className="title">
         Welcome to the internet!
         <Icon iconName="Brightness" style={{ paddingTop: "0.5em" }} />
       </Text>
 
-      <Pivot aria-label="List of hypes">
-        <PivotItem headerText="Grandweg" itemCount={1}>
-          <Label>Grandweg Wohnanlage</Label>
-          <Link
-            className="link"
-            href="https://docs.google.com/spreadsheets/d/1yRncrPSWK4jXz4R6M8Y5_Wnp3e3WVjHi3q_Ksz8vzlY/edit#gid=759655960"
-          >
-            Waschmaschinen List
-          </Link>
-        </PivotItem>
-        <PivotItem headerText="HAW" itemCount={3}>
-          <Label>HAW Links</Label>
-          <Link className="link" href="https://haw-mailer.haw-hamburg.de/owa">
-            HAW-Mailer
-          </Link>
-          <Link
-            className="link"
-            href="https://myhaw.haw-hamburg.de/qisserver/pages/cs/sys/portal/hisinoneStartPage.faces?chco=y"
-          >
-            myHAW
-          </Link>
-          <Link className="link" href="https://emil.haw-hamburg.de/my/">
-            EMIL
-          </Link>
-        </PivotItem>
+      <Pivot
+        aria-label="List of hypes"
+        className="main-content"
+        style={{
+          boxShadow: DefaultEffects.elevation8,
+          background: theme.palette.neutralPrimary,
+        }}
+      >
+        {Object.values(Categories).map((category) => {
+          return (
+            <PivotItem
+              headerText={category.categoryname}
+              itemCount={category.links.length}
+            >
+              <Stack
+                horizontal
+                wrap
+                horizontalAlign="space-evenly"
+                style={{ marginTop: "0.8em" }}
+              >
+                {Object.values(category.links).map((link) => {
+                  console.log(link.url);
+                  return (
+                    <Link className="link" href={link.url}>
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </Stack>
+            </PivotItem>
+          );
+        })}
       </Pivot>
       <div className="background"></div>
     </div>

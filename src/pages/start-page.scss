@@ -1,4 +1,22 @@
-.link {
-  display: inline-block;
-  margin-right: 2em;
+#start {
+  height: 100vh;
+  color: #edebe9;
+  .title {
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+  }
+  .main-content {
+    margin: auto;
+    height: 30vh;
+    width: fit-content;
+    padding: 2em;
+    .ms-Pivot-link {
+      font-size: 1.2em;
+      height: 40px;
+      color: #f5d9f2;
+    }
+    .ms-Pivot-link:hover {
+      background: #11100f;
+    }
+  }
 }
