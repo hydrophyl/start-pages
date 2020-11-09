@@ -1,15 +1,27 @@
 #start {
   height: 100vh;
-  color: #edebe9;
+  color: #e471d6;
   .title {
     padding-top: 1em;
     padding-bottom: 0.5em;
   }
-  .main-content {
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: -1;
+    background-image: url("./bg2.jpg");
+    background-size: cover;
+    height: 100vh;
+  }
+  .nav-board {
+    position: relative;
     margin: auto;
     height: 30vh;
     width: fit-content;
     padding: 2em;
+    margin-bottom: 1em;
     .ms-Pivot-link {
       font-size: 1.2em;
       height: 40px;
@@ -17,6 +29,44 @@
     }
     .ms-Pivot-link:hover {
       background: #11100f;
+    }
+    .link {
+      margin: 1em 1em;
+    }
+    .ms-SearchBox {
+      background: #333;
+      padding: 0;
+      border: none;
+      position: absolute;
+      bottom: 10px;
+      width: 60%;
+      left: 20%;
+      .field-66 {
+        color: #e471d6;
+        text-align: center;
+      }
+      .ms-SearchBox-iconContainer {
+        display: none;
+      }
+    }
+    ::placeholder {
+      color: #fdc0f760;
+      opacity: 1; /* Firefox */
+    }
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #fdc0f760;
+    }
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: #fdc0f760;
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  #start {
+    .main-content {
+      width: 80%;
     }
   }
 }
