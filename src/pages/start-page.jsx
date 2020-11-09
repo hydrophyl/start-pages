@@ -65,16 +65,26 @@ const StartPage = () => {
           onSearch={(e) => gotourl(e)}
         />
       </Stack>
-      <iframe
-        title="spotify"
-        src="https://open.spotify.com/embed/playlist/55z05L7uSns7aPVkeHvRkO"
-        width="600"
-        height="280"
-        frameBorder="0"
-        allowtransparency="true"
-        allow="encrypted-media"
-        style={{ margin: "auto" }}
-      ></iframe>
+      <Stack horizontal horizontalAlign="center">
+        <iframe
+          title="spotify"
+          src="https://open.spotify.com/embed/playlist/55z05L7uSns7aPVkeHvRkO"
+          width="600"
+          height="280"
+          frameBorder="0"
+          allowtransparency="true"
+          allow="encrypted-media"
+        ></iframe>
+        <iframe
+          title="youtube"
+          width="600"
+          height="280"
+          src="https://www.youtube.com/embed/szDnqw-Tz5I?controls=0"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </Stack>
       <h1>
         {today.getDate()}/{today.getMonth() + 1}
       </h1>
