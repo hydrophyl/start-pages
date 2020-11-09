@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import {
   Text,
   Pivot,
@@ -7,18 +6,18 @@ import {
   Link,
   DefaultEffects,
   Stack,
-  Icon,
-  FontIcon,
   SearchBox,
   getTheme,
 } from "@fluentui/react";
 import "./start-page.scss";
 import Categories from "./categories.json";
-
 const theme = getTheme();
 
 const StartPage = () => {
-  const history = useHistory();
+  const gotourl = (e) => {
+    window.location.replace("https://duckduckgo.com/?q=" + e);
+    return null;
+  };
   return (
     <div id="start" style={{ textAlign: "center" }}>
       <div className="background" />
@@ -46,7 +45,6 @@ const StartPage = () => {
                   style={{ marginTop: "0.8em", maxWidth: "600px" }}
                 >
                   {Object.values(category.links).map((link) => {
-                    console.log(link.url);
                     return (
                       <Link className="link" href={link.url}>
                         {link.name}
@@ -59,10 +57,10 @@ const StartPage = () => {
           })}
         </Pivot>
         <SearchBox
-          onSearch={(e) => history.push("https://duckduckgo.com/?q=" + { e })}
           underlined={true}
           style={{ background: theme.palette.neutralPrimary, border: "none" }}
           placeholder="d/g/y/di/"
+          onSearch={(e) => gotourl(e)}
         />
       </Stack>
       <iframe
@@ -70,7 +68,7 @@ const StartPage = () => {
         src="https://open.spotify.com/embed/playlist/55z05L7uSns7aPVkeHvRkO"
         width="600"
         height="280"
-        frameborder="0"
+        frameBorder="0"
         allowtransparency="true"
         allow="encrypted-media"
         style={{ margin: "auto" }}
