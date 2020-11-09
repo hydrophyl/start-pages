@@ -10,6 +10,7 @@ import {
   getTheme,
 } from "@fluentui/react";
 import "./start-page.scss";
+import Clock from "../components/clock";
 import Categories from "./categories.json";
 const theme = getTheme();
 
@@ -18,6 +19,7 @@ const StartPage = () => {
     window.location.replace("https://duckduckgo.com/?q=" + e);
     return null;
   };
+  const today = new Date();
   return (
     <div id="start" style={{ textAlign: "center" }}>
       <div className="background" />
@@ -73,6 +75,10 @@ const StartPage = () => {
         allow="encrypted-media"
         style={{ margin: "auto" }}
       ></iframe>
+      <h1>
+        {today.getDate()}/{today.getMonth() + 1}
+      </h1>
+      <Clock />
     </div>
   );
 };

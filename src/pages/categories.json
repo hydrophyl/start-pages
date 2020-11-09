@@ -49,15 +49,10 @@
       {
         "name": "Bootswatch",
         "url": "https://bootswatch.com/"
-      }
-    ]
-  },
-  {
-    "categoryname": ["grandweg"],
-    "links": [
+      },
       {
-        "name": "Washing machines",
-        "url": "https://docs.google.com/spreadsheets/d/1yRncrPSWK4jXz4R6M8Y5_Wnp3e3WVjHi3q_Ksz8vzlY/edit#gid=759655960"
+        "name": "ReactExamples",
+        "url": "https://reactjsexample.com/"
       }
     ]
   },
@@ -125,6 +120,19 @@
       {
         "name": "Bootswatch",
         "url": "https://bootswatch.com/"
+      },
+      {
+        "name": "ReactExamples",
+        "url": "https://reactjsexample.com/"
+      }
+    ]
+  },
+  {
+    "categoryname": ["grandweg"],
+    "links": [
+      {
+        "name": "Washing machines",
+        "url": "https://docs.google.com/spreadsheets/d/1yRncrPSWK4jXz4R6M8Y5_Wnp3e3WVjHi3q_Ksz8vzlY/edit#gid=759655960"
       }
     ]
   }
