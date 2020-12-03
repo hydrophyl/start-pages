@@ -11,7 +11,7 @@ import {
 } from "@fluentui/react";
 import "./start-page.scss";
 import Clock from "../components/clock";
-import Categories from "./categories.json";
+import { readCategories, filterLinkWithCategory } from "./actions.jsx";
 const theme = getTheme();
 
 const StartPage = () => {
@@ -23,7 +23,7 @@ const StartPage = () => {
   return (
     <div id="start" style={{ textAlign: "center" }}>
       <div className="background" />
-      <Text variant="mega" block className="title">
+      <Text variant="xxLarge" block className="title">
         Welcome to the abyss!
       </Text>
       <Stack
@@ -34,25 +34,24 @@ const StartPage = () => {
         }}
       >
         <Pivot aria-label="List of hypes" className="pivot-board">
-          {Object.values(Categories).map((category) => {
+          {Object.values(readCategories()).map((category) => {
             return (
-              <PivotItem
-                headerText={category.categoryname}
-                itemCount={category.links.length}
-              >
+              <PivotItem headerText={category}>
                 <Stack
                   horizontal
                   wrap
                   horizontalAlign="space-evenly"
                   style={{ marginTop: "0.8em", maxWidth: "600px" }}
                 >
-                  {Object.values(category.links).map((link) => {
-                    return (
-                      <Link className="link" href={link.url}>
-                        {link.name}
-                      </Link>
-                    );
-                  })}
+                  {Object.values(filterLinkWithCategory(category)).map(
+                    (link) => {
+                      return (
+                        <Link className="link" href={link.url}>
+                          {link.name}
+                        </Link>
+                      );
+                    }
+                  )}
                 </Stack>
               </PivotItem>
             );
@@ -66,24 +65,7 @@ const StartPage = () => {
         />
       </Stack>
       <Stack horizontal horizontalAlign="center">
-        <iframe
-          title="spotify"
-          src="https://open.spotify.com/embed/playlist/55z05L7uSns7aPVkeHvRkO"
-          width="600"
-          height="280"
-          frameBorder="0"
-          allowtransparency="true"
-          allow="encrypted-media"
-        ></iframe>
-        <iframe
-          title="youtube"
-          width="600"
-          height="280"
-          src="https://www.youtube.com/embed/szDnqw-Tz5I?controls=0"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+        Put something here
       </Stack>
       <h1>
         {today.getDate()}/{today.getMonth() + 1}

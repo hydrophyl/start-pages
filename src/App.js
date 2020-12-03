@@ -1,5 +1,6 @@
 import "./App.css";
 import StartPage from "./pages/start-page.jsx";
+/* import Zustandigkeit from "./pages/zustand.jsx"; */
 import { loadTheme } from "@fluentui/react";
 
 loadTheme({
@@ -37,6 +38,7 @@ function App() {
   return (
     <div className="App">
       <StartPage />
+      {/* <Zustandigkeit /> */}
     </div>
   );
 }
